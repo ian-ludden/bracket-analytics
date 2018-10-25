@@ -154,3 +154,30 @@ def getE8SeedBottom(year):
 		seed = bottomSeeds[index]
 
 	return seed
+
+
+def toDistribution(x):
+    tmp = np.exp(x)
+    return tmp / np.sum(tmp)
+
+
+def cdfToPdf(x):
+    return [x[0]] + [(x[i+1] - x[i]) for i in range(len(x) - 1)]
+
+
+def minMaxNormalization(x, new_min=0., new_max=1.):
+    _min = np.min(x)
+    _max = np.max(x)
+    if new_min is None:
+        new_min = _min
+    return (x - _min) / (_max - _min) * (new_max - new_min) + new_min
+
+
+def addNoiseToCdf(cdf):
+    if cdf.shape[0] == 1:
+        return cdf
+    noise = np.random.normal(0, NOISE_STD, size=cdf[:, -1].shape)
+    dist = minMaxNormalization(cdfToPdf(cdf[:, -1]) + noise, 0, 1)
+    dist = dist / dist.sum()
+    cdf[:, -1] = [np.sum(dist[:i + 1]) for i in range(len(dist))]
+    return cdf

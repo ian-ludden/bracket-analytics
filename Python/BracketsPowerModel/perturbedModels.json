@@ -1,0 +1,39 @@
+{
+    "models": [
+    {
+        "modelDesc": "F4 Model 1, R1 separate",
+        "modelName": "ian-model21-perturbed-r1-model14",
+        "isR1Grouped": "False",
+        "endModel": "F4_1",
+        "annealing_model": "model14"
+    },
+    {
+        "modelDesc": "F4 Model 2, R1 separate",
+        "modelName": "ian-model23-perturbed-r1-model14",
+        "isR1Grouped": "False",
+        "endModel": "F4_2",
+        "annealing_model": "model14"
+    },
+    {
+        "modelDesc": "E8 Model, R1 separate",
+        "modelName": "ian-model25-perturbed-r1-model14",
+        "isR1Grouped": "False",
+        "endModel": "E8",
+        "annealing_model": "model14"
+    },
+    {
+        "modelDesc": "Reverse Model (top 2), R1 separate",
+        "modelName": "ian-model27-perturbed-r1-model14",
+        "isR1Grouped": "False",
+        "endModel": "Rev_2",
+        "annealing_model": "model14"
+    },
+    {
+        "modelDesc": "Forward Model, R1 separate",
+        "modelName": "ian-model31-perturbed-r1-model14",
+        "isR1Grouped": "False",
+        "endModel": "None",
+        "annealing_model": "model14"
+    }
+    ]
+}
