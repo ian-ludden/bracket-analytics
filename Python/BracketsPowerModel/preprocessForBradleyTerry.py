@@ -35,10 +35,10 @@ def preprocess(year):
             records.append([
                 's{}'.format(min(matchup)),
                 's{}'.format(max(matchup)),
-                'W{}'.format(1 if winning_seed == matchup[0] else 2)])
-        # continue
+                'W{}'.format(1 if winning_seed == min(matchup) else 2)])
+
         f4Seeds.append(winning_seed)
-        if counter % 4 == 3:
+        if len(f4Seeds) == 4:
             year_index = counter // 4
             winning_seed_1 = f4Seeds[unpooled[year_index, 60]]
             if f4Seeds[0] == f4Seeds[1]:
@@ -75,6 +75,7 @@ def preprocess(year):
                 's{}'.format(max(winning_seed_1, winning_seed_2)),
                 'W{}'.format(winner)
             ])
+            f4Seeds = []
         counter += 1
 
     df = pd.DataFrame(records, columns=['player1', 'player2', 'outcome'])
