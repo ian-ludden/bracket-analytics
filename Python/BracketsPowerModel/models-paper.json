@@ -1,0 +1,33 @@
+{
+    "models": [
+    {
+        "modelDesc": "F4 Model 1, R1 separate",
+        "modelName": "model21",
+        "isR1Grouped": "False",
+        "endModel": "F4_1"
+    },
+    {
+        "modelDesc": "F4 Model 2, R1 separate",
+        "modelName": "model23",
+        "isR1Grouped": "False",
+        "endModel": "F4_2"
+    },
+    {
+        "modelDesc": "E8 Model, R1 separate",
+        "modelName": "model25",
+        "isR1Grouped": "False",
+        "endModel": "E8"
+    },
+    {
+        "modelDesc": "Reverse Model (top 2), R1 separate",
+        "modelName": "model27",
+        "isR1Grouped": "False",
+        "endModel": "Rev_2"
+    },
+    {
+        "modelDesc": "Forward Model, R1 separate",
+        "modelName": "model31",
+        "isR1Grouped": "False",
+        "endModel": "None"
+    }]
+}

@@ -95,18 +95,24 @@ numTrials = 50000
 numBatches = 10
 
 roundNum = int(sys.argv[1])
+modelFilename = sys.argv[2]
 
-models = [21, 23, 25, 27, 31]
+with open(modelFilename, 'r') as modelFile:
+	modelsDataJson = modelFile.read().replace('\n', '')
 
+modelsDict = json.loads(modelsDataJson)
+modelsList = modelsDict['models']
+
+# folderName = 'Experiments/50kTrials/'
 home = os.path.expanduser("~")
-folderName = '{0}/Experiments/50kTrials_20to33'.format(home)
+folderName = "{0}/Experiments/50kTrials_20to33".format(home)
 
 for year in range(2013, 2019):
-	print '{0} Tournament:'.format(year)
+	print('{0},,'.format(year))
 
-	for modelNum in models:
-		modelName = 'model{0}'.format(modelNum)
-		print modelName
+	for model in modelsList:
+		modelName = model['modelName']
+		print('{0},,'.format(modelName))
 
 		seedTally = [0 for i in range(17)] # index 0 unused
 
@@ -132,5 +138,9 @@ for year in range(2013, 2019):
 		totalTally = sum(seedTally)
 		seedProp = [(seedTally[i] * 1.0 / totalTally) for i in range(17)]
 
-		pprint(seedProp[1:])
+		print("Seed,Proportion")
+		for seedNum in range(1, 17):
+			print("{0},{1}".format(seedNum,seedProp[seedNum]))
+
+		print('')
 

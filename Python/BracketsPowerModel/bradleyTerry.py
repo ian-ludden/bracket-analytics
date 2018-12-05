@@ -61,6 +61,12 @@ def fit(limit_year):
             break
         prev = ll
 
+
+    with open('bradleyTerry/params-{}.csv'.format(limit_year), 'w') as f:
+        for index in range(16):
+            f.write("\"s{0}\",{1}\n".format(index + 1, beta[index]))
+        f.write('\n\n')
+
     p = np.zeros((16, 16))
     for i in range(16):
         for j in range(16):
